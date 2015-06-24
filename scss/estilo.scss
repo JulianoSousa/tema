@@ -1,0 +1,380 @@
+@import '../scss/bootstrap';
+//color
+$cor-um: #191919; //preto 
+$cor-dois: #ff5845;  //laranja
+$cor-tres: #fff; //branco
+
+//fonts
+$font-um:  'Raleway', sans-serif;
+
+//border
+$default-border-radius: 4px;
+
+//opacity
+$opacity: 0.3;
+
+//letter-spacing
+$letter-spacing: 3px;
+
+@mixin transition($transition-property, $transition-time, $method) {
+
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+
+}
+
+@mixin placeholder() {
+
+	font-family: $font-um;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: $letter-spacing;
+
+}
+
+@mixin boxshadow() {
+
+	box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+    -moz-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+    -webkit-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+
+}
+
+@mixin gradient() {
+
+  background: -webkit-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* W3C */
+
+}
+
+
+/* estilos adicionais ao bootstrap */
+
+.navbar-default {
+	background-color: transparent;
+	font-family: $font-um ;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 500;
+	.navbar-nav {
+
+		 li {
+
+			 a{
+			 	&:hover { 
+
+			 	border-top: 1px solid $cor-dois;
+			 	color: $cor-dois 
+
+			 	}
+
+			 	&:focus {
+
+			 		background-color: $cor-dois;
+			 		color: $cor-tres;
+
+			 	}
+
+			 }
+
+		}
+
+	}
+	
+}
+.scroll-fixo{ background-color: $cor-tres; } 
+
+@media screen and (max-width: 768px){
+	.navbar-default {background-color: $cor-tres  ;}
+	
+}
+
+
+/*   */
+h3 {
+		font-weight: 900;
+		font-size: 18px;
+		text-transform: uppercase;
+		padding-top: 40px;
+		text-align: center;
+
+	}
+
+.img-intro {
+
+	display: block;
+	width: 100%;
+	height: auto;
+	@include gradient();
+ 
+        
+
+	.frase-intro {
+
+		padding-top: 25% ;
+			
+		span {
+
+			display: block;
+			text-align: center;
+			font-family: $font-um;
+			font-size: 1.5em;
+			text-transform: uppercase;
+			color: $cor-um;
+
+		}
+	}
+}
+
+
+.button-scroll {
+
+	width: 100%;
+	text-align: center;
+	padding: 10%;
+
+}
+
+.btn-black {
+
+	background-color: transparent;
+	border: 2px solid ;
+	border-radius: $default-border-radius;
+	margin: 20px;
+	padding: 10px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 900;
+
+}
+
+#services {
+
+	width:100%;
+	height: auto; 
+	font-family: $font-um;
+	text-align: center;
+	
+	h4 {
+
+		font-size: 13px;
+		text-transform: uppercase;
+		padding-bottom: 12em;
+		letter-spacing: $letter-spacing;
+
+	}
+
+	P { padding: 5% 20% ; }
+
+}
+.our-services{ @extend #services; }
+
+/*=====================
+		COUNT
+======================*/
+.count {
+
+	width: 100%;
+	height: auto;
+	text-align: center;
+	padding: 6em 0;
+	background-color: #FBFBFB;
+	font-family: $font-um;  
+	h3 { font-weight: 700; }
+
+}
+
+#our-works {
+
+	text-align: center;
+
+	a {
+		cursor: url('../img/cursor-plus.png'), auto;
+		background-color: $cor-um;
+		
+		img:hover {
+			opacity: $opacity;
+			 @include transition(all, 0.5s, ease-in-out);
+			
+		}
+	}
+
+	h3 { padding: 3%; }
+
+
+}
+.case-portfolio {
+
+	img {
+
+	   	position: relative;
+		display: block;
+	  	width: -webkit-calc(100% + 9% );
+		width: calc(100%  + 9%);
+		
+		
+	}
+
+	.txt-portfolio {
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		color: $cor-tres;
+		z-index: 2;
+
+	}
+		
+}
+
+
+#contact { padding:10px 0 10px; }
+.contact-text { margin:45px auto; }
+.mail-message-area{
+
+    width:100%;
+    padding:0 15px;
+
+ }
+
+.mail-message {
+
+    width: 100%;
+    background:rgba(255,255,255, 0.8) !important;
+    @include transition(all, 0.7s, ease-in-out);
+    margin:0 auto;
+    border-radius: 0;
+
+  }
+
+.not-visible-message {
+
+    height:0px;
+    opacity: 0;
+
+ }
+
+.visible-message {
+
+    height:auto;
+    opacity: 1;
+    margin:25px auto 0;
+
+  }
+
+/* Input Styles */
+
+  .form {
+
+    width: 100%;
+    padding: 15px;
+    background:#f8f8f8;
+    border:1px solid rgba(0, 0, 0, 0.075);
+    margin-bottom:25px;
+    color:#727272 !important;
+    font-size:13px;
+    @include transition(all, 0.4s, ease-in-out);
+
+    &:hover { border:1px solid $cor-dois; }
+	&:focus {
+
+	    color: white;
+	    outline: none;
+	    border:1px solid $cor-dois;
+
+  	}
+
+  }
+
+.textarea {
+
+    height: 200px;
+    max-height: 200px;
+    max-width: 100%;
+
+ }
+  
+/* Generic Button Styles */
+
+  .button {
+
+    padding:8px 12px;
+    display: block;
+    width:120px;
+    margin:10px 0 0px 0;
+    border-radius:3px;
+    @include transition(all, 0.3s, ease-in-out);
+    text-align:center;
+    font-size:0.8em;
+     @include boxshadow();
+    &:hover {
+
+	    background:$cor-dois;
+	    color:white;
+
+  	}
+
+  }
+
+
+
+/* Send Button Styles */
+
+  .form-btn {
+
+    width:180px;
+    display: block;
+    height: auto;
+    padding:15px;
+    margin-bottom: 60px!important;
+    color: $cor-tres;
+    background:$cor-dois;
+    border:none;
+    border-radius:$default-border-radius;
+    outline: none;
+     @include transition(all, 0.3s, ease-in-out);
+     @include boxshadow();
+    margin:auto;
+    
+    &:hover {
+
+	    background:$cor-um;
+	    color: white;
+	    border:none;
+
+	}
+	&:active{ opacity: $opacity + 6; }
+
+  }
+
+ 
+
+
+
+::-webkit-input-placeholder { @include placeholder(); }
+:-moz-placeholder { @include placeholder(); }
+::-moz-placeholder { @include placeholder(); }
+:-ms-input-placeholder { @include placeholder(); }
+
+footer{
+	width: 100%;
+	background-color: $cor-um;
+	padding: 30px;
+	.credits{
+		text-align: left;
+		color: #8C8C8C;
+		font-family: $font-um;
+		font-weight: 300;
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: $letter-spacing;
+	}
+	.author{ text-align: right}
+}
